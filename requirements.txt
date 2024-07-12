@@ -1,3 +1,2 @@
 openai
-pathlib
-dotenv
+python-dotenv
