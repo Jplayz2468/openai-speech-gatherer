@@ -21,6 +21,7 @@ os.makedirs(output_dir, exist_ok=True)
 
 # Function to download and extract datasets
 def download_and_extract(url, extract_to):
+    print("downloading and extracting" + url)
     local_filename = url.split('/')[-1]
     local_filepath = os.path.join(extract_to, local_filename)
 
@@ -44,6 +45,7 @@ def download_and_extract(url, extract_to):
 
 # Normalize audio function
 def normalize_audio(input_path, output_path, target_loudness=-20.0):
+    print("normalizing")
     audio = AudioSegment.from_file(input_path)
     change_in_dBFS = target_loudness - audio.dBFS
     normalized_audio = audio.apply_gain(change_in_dBFS)
