@@ -1,0 +1,30 @@
+name: Download and Normalize Audio
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install requests pydub ffmpeg-python
+
+    - name: Install FFmpeg
+      run: sudo apt-get install ffmpeg
+
+    - name: Run script
+      run: |
+        source venv/bin/activate
+        python get.py
