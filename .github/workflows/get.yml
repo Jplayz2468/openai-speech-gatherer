@@ -1,7 +1,6 @@
 name: Download and Normalize Audio
 
-on: 
-  workflow_dispatch:
+on: [push]
 
 jobs:
   build:
@@ -19,13 +18,13 @@ jobs:
     - name: Install dependencies
       run: |
         python -m venv venv
-        source venv/bin/activate
+        . venv/bin/activate
         pip install requests pydub ffmpeg-python
 
     - name: Install FFmpeg
-      run: sudo apt-get install ffmpeg
+      run: sudo apt-get install -y ffmpeg
 
-    - name: Pre-run script
+    - name: Run script
       run: |
-        source venv/bin/activate
-        python get.py
+        . venv/bin/activate
+        python script.py
