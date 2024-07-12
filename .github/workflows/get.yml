@@ -23,4 +23,4 @@ jobs:
         python -m venv venv
         . venv/bin/activate
         pip install requests pydub ffmpeg-python
-        python script.py
+        python get.py
