@@ -25,7 +25,10 @@ jobs:
     - name: Install FFmpeg
       run: sudo apt-get install ffmpeg
 
-    - name: Run script
+    - name: Pre-run script
       run: |
         source venv/bin/activate
+
+    - name: Run script
+      run: |
         python get.py
