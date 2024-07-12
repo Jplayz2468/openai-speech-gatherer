@@ -47,33 +47,8 @@ def update_json(paragraph, filename, json_file):
         json.dump(data, file, indent=4)
 
 def main():
-    categories_1 = [
-        "Astronomy", "Cooking", "Robotics", "Ancient History", "Marine Biology",
-        "Photography", "Cryptography", "Mythology", "Fashion Design", "Architecture",
-        "Philosophy", "Gardening", "Forensic Science", "Quantum Physics", "Literature",
-        "Video Game Design", "Environmental Science", "Music Theory", "Artificial Intelligence",
-        "Linguistics", "Anthropology", "Paleontology", "Film Studies", "Graphic Design",
-        "Psychology", "Veterinary Medicine", "Sports Analytics", "Urban Planning",
-        "Bioengineering", "Political Science", "Cartography", "Aerospace Engineering",
-        "Zoology", "Economics", "Meteorology", "Data Science", "Geology",
-        "Archaeology", "Cybersecurity", "Fashion Photography", "Renewable Energy",
-        "Neurology", "Culinary Arts", "Theatre", "Social Media Marketing",
-        "Human Resources", "Education Technology", "Microbiology", "Robotics Engineering",
-        "Cultural Studies"
-    ]
-    categories = [
-        "Astrobiology", "Blockchain Technology", "Climate Change", "Animation", "Nutritional Science",
-        "Game Theory", "Ethnography", "Material Science", "Virtual Reality", "Genomics",
-        "Machine Learning", "Sociology", "Astrophysics", "Public Health", "Epistemology",
-        "Marine Engineering", "Digital Art", "Organic Chemistry", "Epigenetics", "Artificial Neural Networks",
-        "Behavioral Economics", "Oceanography", "Ecotourism", "Biostatistics", "Cosmology",
-        "Renewable Resources", "Sound Engineering", "Cognitive Science", "Hydrology", "Historical Linguistics",
-        "Photovoltaics", "Biomechanics", "Industrial Design", "Literary Criticism", "Environmental Policy",
-        "Botany", "Astrobiology", "Nanotechnology", "Comparative Religion", "Cyber-Physical Systems",
-        "Educational Psychology", "Geophysics", "Medieval Studies", "Bioinformatics", "Disaster Management",
-        "Cultural Anthropology", "Quantum Computing", "Marine Conservation", "Sustainable Agriculture",
-        "Science Communication"
-    ]
+    categories = []
+    
     output_dir = Path('output')
     output_dir.mkdir(exist_ok=True)
 
