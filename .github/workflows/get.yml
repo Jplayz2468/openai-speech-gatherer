@@ -28,7 +28,4 @@ jobs:
     - name: Pre-run script
       run: |
         source venv/bin/activate
-
-    - name: Run script
-      run: |
         python get.py
