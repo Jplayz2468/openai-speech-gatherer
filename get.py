@@ -1,9 +1,10 @@
+print("installing dependencies...")
 import os
 import requests
 from pydub import AudioSegment
 import tarfile
 import zipfile
-
+print("ensuring ffmpeg")
 # Ensure ffmpeg is installed and accessible
 ffmpeg_executable = "ffmpeg"
 
@@ -11,10 +12,10 @@ ffmpeg_executable = "ffmpeg"
 datasets = {
     "LJ_Speech": "https://data.keithito.com/data/speech/LJSpeech-1.1.tar.bz2",
     "VCTK": "https://datashare.ed.ac.uk/download/DS_10283_3443.zip",
-    "LibriTTS": "https://www.openslr.org/resources/60/train-clean-100.tar.gz",
+    "LibriTTS": "https://www.openslr.org/resources/60/train-clean-100.tar.gz"
     # Add more datasets as needed
 }
-
+print("making files")
 output_dir = "normalized_audio"
 transcripts_file = "merged_transcripts.txt"
 os.makedirs(output_dir, exist_ok=True)
@@ -42,7 +43,6 @@ def download_and_extract(url, extract_to):
     elif local_filename.endswith('.zip'):
         with zipfile.ZipFile(local_filepath, 'r') as zip_ref:
             zip_ref.extractall(extract_to)
-
 # Normalize audio function
 def normalize_audio(input_path, output_path, target_loudness=-20.0):
     print("normalizing")
@@ -50,7 +50,7 @@ def normalize_audio(input_path, output_path, target_loudness=-20.0):
     change_in_dBFS = target_loudness - audio.dBFS
     normalized_audio = audio.apply_gain(change_in_dBFS)
     normalized_audio.export(output_path, format="wav")
-
+print("processing")
 # Process each dataset
 for dataset_name, url in datasets.items():
     extract_path = os.path.join(output_dir, dataset_name)
